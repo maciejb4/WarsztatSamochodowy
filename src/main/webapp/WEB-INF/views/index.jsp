@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>WARSZTAT</title>
-    <h3>WARSZTAT</h3>
+    <a href="/"><h3>WARSZTAT</h3></a>
 </head>
 
 <body>

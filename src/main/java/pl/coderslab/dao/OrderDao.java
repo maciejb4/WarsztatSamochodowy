@@ -70,7 +70,7 @@ public class OrderDao extends Order {
 
             } else {
 
-                String sql = "update orders set date_in = ?,date_out = ?, started_date = ?, employee_id = ?, issue_note = ?, repair_note = ?, status_id = ?, vehicle_id = ?, repair_cost = ?, parts_cost = ?, man_hours = ?, where id=?";
+                String sql = "update orders set date_in = ?,date_out = ?, started_date = ?, employee_id = ?, issue_note = ?, repair_note = ?, status_id = ?, vehicle_id = ?, repair_cost = ?, parts_cost = ?, man_hours = ? where id=?";
 
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -202,6 +202,48 @@ public class OrderDao extends Order {
 
     }
 
+    public void update() throws SQLException {
+        try {
+
+        Connection connection = DbUtil.getConn();
+
+        String sql = "update orders set date_in = ?,date_out = ?, started_date = ?, employee_id = ?, issue_note = ?, repair_note = ?, status_id = ?, vehicle_id = ?, repair_cost = ?, parts_cost = ?, man_hours = ? where id=?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setDate(1, this.getDate_in());
+
+        preparedStatement.setDate(2, this.getDate_out());
+
+        preparedStatement.setDate(3, this.getStarted_date());
+
+        preparedStatement.setInt(4, this.getEmployee_id());
+
+        preparedStatement.setString(5, this.getIssue_note());
+
+        preparedStatement.setString(6, this.getRepair_note());
+
+        preparedStatement.setInt(7, this.getStatus_id());
+
+        preparedStatement.setInt(8, this.getVehicle_id());
+
+        preparedStatement.setInt(9, this.getRepair_cost());
+
+        preparedStatement.setInt(10, this.getParts_cost());
+
+        preparedStatement.setInt(11, this.getMan_hours());
+
+        preparedStatement.setInt(12, this.getId());
+
+        preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
 
 }
 

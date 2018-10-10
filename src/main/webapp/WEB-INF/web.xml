@@ -66,6 +66,19 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
         <url-pattern>/orders_load_all</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>OrderUpdate</servlet-name>
+        <servlet-class>pl.coderslab.controller.Order.ServletOrderUpdate</servlet-class>
+        <init-param>
+            <param-name>link</param-name>
+            <param-value>/WEB-INF/order-forms/OrderUpdate.jsp</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderUpdate</servlet-name>
+        <url-pattern>/order_update</url-pattern>
+    </servlet-mapping>
+
 
 
 

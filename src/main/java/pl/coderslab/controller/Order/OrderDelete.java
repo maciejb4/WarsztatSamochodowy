@@ -35,9 +35,21 @@ public class OrderDelete extends HttpServlet {
             e.printStackTrace();
         }
 
+        request.setAttribute("link", "/WEB-INF/views/home.jsp");
+
+        getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        OrderDao orderDao = new OrderDao();
+
+        orderDao.setId(id);
+
+        request.setAttribute("id",id);
 
         request.setAttribute("link", link);
         getServletContext().getRequestDispatcher("/WEB-INF/order-forms/OrderDelete.jsp").forward(request, response);
