@@ -4,7 +4,7 @@
     <tr>
         <td>Id</td>
         <td>Data przyjęcia</td>
-        <td>Przewidywana naprawa</td>
+        <td>Przewidywana data zakończenia</td>
         <td>Rozpoczęcie naprawy</td>
         <td>Id pracownika</td>
         <td>Opis problemu</td>
@@ -41,6 +41,9 @@
                     <c:when test="${lista.status_id==5}">
                         Rezygnacja
                     </c:when>
+                    <c:otherwise>
+                        Inne
+                    </c:otherwise>
                 </c:choose>
             </td>
             <td>${lista.vehicle_id}</td>
